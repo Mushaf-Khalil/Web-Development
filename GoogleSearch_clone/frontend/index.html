@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Google</title>
+  <link rel="icon" href="https://www.google.com/favicon.ico" />
+  <link rel="stylesheet" href="../styles/styles.css" />
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const appsIcon = document.querySelector(".apps-icon");
+      const appsMenu = document.querySelector(".apps-menu");
+
+      if (appsIcon && appsMenu) {
+        appsIcon.addEventListener("click", function (e) {
+          e.stopPropagation();
+          appsMenu.classList.toggle("show");
+        });
+
+        document.addEventListener("click", function (e) {
+          if (!appsMenu.contains(e.target) && !appsIcon.contains(e.target)) {
+            appsMenu.classList.remove("show");
+          }
+        });
+      }
+    });
+  </script>
+</head>
+<body>
+  <div class="header" style="font-size: 18px; padding: 24px 32px;">
+    <a href="#">Gmail</a>
+    <a href="#">Images</a>
+    <img src="../Assets/Searchlabsicon.png" alt="Search Labs" class="icon" />
+    <img src="../Assets/dots-menu.png" alt="Google Apps" class="icon apps-icon" />
+<div class="apps-menu">
+  <div class="apps-grid">
+    <div class="app">
+      <img src="../Assets/f1.jpg" alt="Profile" class="app-icon" style="border-radius: 50%;"/>
+      <span>Account</span>
+    </div>
+    <div class="app">
+      <img src="../Assets/google.png" alt="Gmail" class="app-icon" />
+      <span>Gmail</span>
+    </div>
+    <div class="app">
+      <img src="../Assets/google-drive.png" alt="Drive" class="app-icon" />
+      <span>Drive</span>
+    </div>
+    <div class="app">
+      <img src="../Assets/google-maps.png" alt="Maps" class="app-icon" />
+      <span>Maps</span>
+    </div>
+    <div class="app">
+      <img src="../Assets/youtube.png" alt="YouTube" class="app-icon" />
+      <span>YouTube</span>
+    </div>
+    <div class="app">
+      <img src="../Assets/app.png" alt="Play Store" class="app-icon" />
+      <span>Play Store</span>
+    </div>
+    <div class="app">
+      <img src="../Assets/lens.png" alt="Lens" class="app-icon" />
+      <span>Lens</span>
+    </div>
+    <div class="app">
+      <img src="../Assets/trasnslate.png" alt="Translate" class="app-icon" />
+      <span>Translate</span>
+    </div>
+    <div class="app">
+      <img src="../Assets/one.png" alt="Google One" class="app-icon" />
+      <span>Google One</span>
+    </div>
+  </div>
+</div>
+
+    <img src="../Assets/f1.jpg" alt="Profile" class="profile-icon" />
+  </div>
+
+  <main class="main">
+    <img
+      src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png"
+      alt="Google logo"
+      class="logo"/>
+    <div class="search-box">
+      <img src="../Assets/find.png" alt="Search" class="search-icon" />
+      <input type="text" placeholder="" />
+      <div class="right-icons">
+        <img src="../Assets/Mic.png" alt="Mic" class="icon" />
+        <img src="../Assets/lens.png" alt="Google Lens" class="icon" />
+      </div>
+    </div>
+
+    <div class="buttons">
+      <button>Google Search</button>
+      <button>I'm Feeling Lucky</button>
+    </div>
+    <Br>
+    <div class="language-options">
+      <span>Google offered in: </span>
+      <a href="#">اردو</a>
+      <a href="#">پشتو</a>
+    </div>
+  </main>
+
+  <footer class="footer">
+  <div>Pakistan</div>
+  <hr class="divider" />
+  <div class="footer-links-container">
+    <div class="footer-links left-links">
+      <a href="#">About</a>
+      <a href="#">Advertising</a>
+      <a href="#">Business</a>
+      <a href="#">How Search works</a>
+    </div>
+    <div class="footer-links right-links">
+      <a href="#">Privacy</a>
+      <a href="#">Terms</a>
+      <a href="#">Settings</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

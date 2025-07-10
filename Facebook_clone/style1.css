@@ -1,0 +1,712 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Modified body styles for footer integration and scrolling */
+body {
+  font-family: Helvetica, Arial, sans-serif;
+  background-color: #f0f2f5;
+  min-height: 100vh; /* Ensures body takes at least full viewport height */
+  display: flex; /* Enable flexbox */
+  flex-direction: column; /* Stack children (main-content-wrapper, footer) vertically */
+  /* Removed align-items and justify-content from body to allow footer to stick */
+  padding: 0; /* Removed padding from body to allow footer to extend full width */
+}
+
+/* New wrapper to center the main content vertically and horizontally */
+.main-content-wrapper {
+  flex-grow: 1; /* Allows it to take all available space, pushing footer to the bottom */
+  display: flex; /* Enable flexbox for centering its child */
+  align-items: center; /* Centers .container vertically within this wrapper */
+  justify-content: center; /* Centers .container horizontally within this wrapper */
+  padding: 20px; /* Re-apply padding here for the main content area */
+  min-height: 100vh; /* Ensures main content area is at least full viewport height, forcing scroll */
+}
+
+/* Main content container adjustments - flex-grow and margin are now handled by .main-content-wrapper */
+.container {
+  display: flex;
+  max-width: 1200px;
+  width: 60%;
+  gap: 90px;
+  align-items: center; /* Aligns left-section and right-section vertically within .container */
+}
+
+.left-section {
+  flex: 0.9;
+  color: #1c1e21;
+  max-width: 400px;
+}
+
+.logo {
+  font-size: 65px;
+  font-weight: bold;
+  margin-bottom: 16px; /* Corrected invalid margin-bottom property */
+  color: #000ff0;
+}
+
+.tagline {
+  font-size: 26px;
+  line-height: 1.3;
+  font-weight: 300;
+  padding: 0px 0px 20px;
+}
+
+.right-section {
+  flex: 0.9;
+  max-width: 450px;
+}
+
+.login-form {
+  background: white;
+  padding: 20px; /* Reduced padding from 30px to 20px */
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
+  border: 1px solid #dddfe2;
+  width: 100%;
+  max-width: 420px; /* Reduced max-width from 460px to 420px */
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-input {
+  width: 100%;
+  padding: 15px 20px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.form-input:focus {
+  border-color: #1877f2;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(24, 119, 242, 0.1);
+  transform: translateY(-2px);
+}
+
+.login-btn {
+  width: 100%;
+  padding: 15px;
+  background: #0000ff;
+  color: white;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border: none;
+}
+
+.login-btn:hover {
+  background: linear-gradient(135deg, #166fe5, #3d96e6);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(24, 119, 242, 0.3);
+}
+
+.login-btn:active {
+  transform: translateY(-1px);
+}
+.forgot-password {
+  text-align: center;
+  margin: 15px 0;
+  color: #1877f2;
+  text-decoration: none;
+}
+.forgot-password a {
+  text-decoration: none;
+  margin: 20px 0;
+  font-size: 14px;
+  color: #1877f2;
+  text-align: center;
+}
+
+.forgot-password a:hover {
+  color: #1877f2;
+  text-decoration: underline;
+}
+
+.divider {
+  text-align: center;
+  margin: 25px 0;
+  position: relative;
+  color: #8a8d91;
+}
+
+.divider::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: #dadde1;
+}
+
+.divider span {
+  background: white;
+  padding: 0 15px;
+  font-size: 14px;
+}
+
+.create-account-btn {
+  width: 60%;
+  padding: 15px;
+  background: #4CB82E;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: block;
+  margin: 0 auto;
+}
+
+.create-account-btn:hover {
+  background: linear-gradient(135deg, #369970, #52c082);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(66, 184, 131, 0.3);
+}
+.create-page {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 14px;
+  color: #1c1e21;
+}
+
+.create-page a {
+  color: #000000;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.create-page a:hover {
+  text-decoration: underline;
+}
+
+.error-message {
+  color: #e74c3c;
+  font-size: 14px;
+  margin-top: 10px;
+  padding: 10px;
+  background-color: rgba(231, 76, 60, 0.1);
+  border-radius: 5px;
+  display: none;
+}
+
+.success-message {
+  color: #27ae60;
+  font-size: 14px;
+  margin-top: 10px;
+  padding: 10px;
+  background: rgba(39, 174, 96, 0.1);
+  border-radius: 5px;
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+  }
+  .logo {
+    font-size: 45px;
+  }
+  .tagline {
+    font-size: 22px;
+  }
+  .login-form {
+    padding: 25px;
+  }
+}
+
+@media (max-width: 480px) {
+  .login-form {
+    padding: 20px;
+    margin: 0 10px;
+  }
+  .logo {
+    font-size: 35px;
+  }
+  .tagline {
+    font-size: 18px;
+  }
+}
+
+/* Modal Styling */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  transition: opacity 0.3s ease;
+}
+
+.modal-overlay.active {
+  display: flex;
+  opacity: 1;
+}
+
+.signup-modal {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  width: 90%;
+  max-width: 500px;
+  max-height: 90vh;
+  overflow-y: auto;
+  transform: scale(0.8);
+  transition: transform 0.3s ease;
+}
+
+.modal-overlay.active .signup-modal {
+  transform: scale(1);
+}
+
+.modal-header {
+  padding: 20px 20px 10px;
+  border-bottom: 1px solid #dddfe2;
+  position: relative;
+}
+
+.modal-title {
+  color: #606770;
+  font-size: 15px;
+}
+
+.close-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  border: none;
+  background: #e4e6ea;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 20px;
+  color: #606770;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s ease;
+}
+
+.close-btn:hover {
+  background: #d8dadf;
+}
+
+.modal-body {
+  padding: 20px;
+}
+
+.signup-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form-row {
+  display: flex;
+  gap: 12px;
+}
+
+.form-row input {
+  flex: 1;
+}
+
+.signup-input {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #dddfe2;
+  border-radius: 6px;
+  font-size: 15px;
+  background: #f5f6f7;
+  transition: all 0.3s ease;
+}
+
+.signup-input:focus {
+  border-color: #000000;
+  outline: none;
+  background: white;
+}
+
+.birthday-label {
+  font-size: 12px;
+  color: #606770;
+  margin-bottom: 8px;
+}
+
+.birthday-section {
+  margin: 15px 0;
+}
+
+.birthday-inputs {
+  display: flex;
+  gap: 12px;
+}
+
+.birthday-select {
+  flex: 1;
+  padding: 8px 12px;
+  border: 1px solid #dddfe2;
+  border-radius: 6px;
+  background: #f5f6f7;
+  font-size: 15px;
+}
+
+.gender-section {
+  margin: 15px 0;
+}
+
+.gender-label {
+  font-size: 12px;
+  color: #606770;
+  margin-bottom: 8px;
+}
+
+.gender-option {
+  flex: 1;
+  padding: 8px 12px;
+  border: 1px solid #dddfe2;
+  border-radius: 6px;
+  background: #f5f6f7;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+}
+
+.gender-option:hover {
+  color: #1877f2;
+}
+
+.gender-option input[type="radio"] {
+  margin: 0;
+}
+
+.terms-text {
+  font-size: 11px;
+  color: #777;
+  line-height: 1.4;
+  margin: 15px 0;
+}
+
+.signup-btn {
+  background: #00a400;
+  color: white;
+  border: none;
+  padding: 12px 60px;
+  border-radius: 6px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  align-self: center;
+  margin-top: 15px;
+  transition: background 0.3s ease;
+}
+
+.signup-btn:hover {
+  background: #42b883;
+}
+
+@media (max-width: 600px) {
+  .form-row {
+    flex-direction: column;
+    gap: 12px;
+  }
+  .gender-option {
+    flex-direction: column;
+  }
+  .birthday-inputs {
+    flex-direction: column;
+  }
+}
+
+.toast {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: #4caf50;
+  color: white;
+  padding: 16px 24px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  z-index: 2000;
+  transform: translateY(400px);
+  opacity: 0;
+  transition: all 0.3s ease;
+  max-width: 350px;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.toast.show {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.toast.error {
+  background: #f44336;
+}
+
+.toast.success {
+  background: #4caf50;
+}
+
+.toast-content {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.toast-icon {
+  font-size: 18px;
+}
+
+.toast-close {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+  margin-left: 10px;
+  transition: opacity 0.3s ease;
+  opacity: 0.7;
+}
+
+.toast-close:hover {
+  opacity: 1;
+}
+
+.forgot-modal {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+  max-width: 500px;
+  width: 95%;
+  transform: scale(0.8);
+  transition: transform 0.3s ease;
+  position: relative; /* Added to correctly position the close button */
+  padding: 20px; /* Added padding to the modal content */
+  padding-top: 50px; /* Increased top padding to make space for the close button */
+}
+
+.modal-overlay.active .forgot-modal {
+  transform: scale(1);
+}
+
+/* Specific styling for the close button within the forgot modal */
+#closeForgotModal {
+  position: absolute;
+  top: 15px; /* Adjusted top position */
+  right: 15px; /* Adjusted right position */
+  /* Inherits other styles from .close-btn */
+}
+
+/* Removed .forgot-header as it's not present in HTML structure for forgot modal */
+
+.forgot-title {
+  color: #1c1e21;
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.forgot-subtitle {
+  color: #606770;
+  font-size: 14px;
+  line-height: 1.4;
+  margin-bottom: 20px; /* Added margin to separate from input field */
+}
+
+.forgot-body {
+  padding: 0; /* Removed padding here as it's now on .forgot-modal */
+}
+
+.forgot-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.forgot-input {
+  padding: 12px 15px;
+  border: 1px solid #dddfe2;
+  border-radius: 6px;
+  font-size: 15px;
+  background: #f5f6f7;
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+.forgot-input:focus {
+  border-color: #000000;
+  outline: none;
+  background: white;
+}
+
+.forgot-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+  gap: 12px;
+}
+
+.forgot-cancel-btn {
+  background: #e4e6ea;
+  color: #4b4f56;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.3s ease;
+}
+
+.forgot-cancel-btn:hover {
+  background: #d8dadf;
+}
+
+.forgot-submit-btn {
+  background: #1877f2;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.3s ease;
+}
+
+@media (max-width: 480px) {
+  .toast {
+    top: 10px;
+    right: 10px;
+    left: 10px;
+    transform: translateY(-100px);
+    max-width: none;
+  }
+  .toast.show {
+    transform: translateY(0);
+  }
+  .forgot-actions {
+    flex-direction: column;
+  }
+}
+
+/* Footer specific styles */
+footer {
+    background-color: #fff;
+    border-top: 1px solid #ddd;
+    color: #656770;
+    font-size: 0.8125rem;
+    padding: 1rem 0;
+    width: 100%;
+    margin-top: auto; /* This is key for sticky footer behavior */
+}
+
+.footer-content-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.footer-top-section {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #dddfe2;
+    margin-bottom: 1rem;
+}
+
+.language-links-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+    font-size: 0.875rem;
+}
+
+@media (min-width: 640px) { /* sm breakpoint */
+    .language-links-wrapper {
+        margin-bottom: 0;
+    }
+    .footer-content-wrapper {
+        padding: 0 1.5rem;
+    }
+}
+
+@media (min-width: 1024px) { /* lg breakpoint */
+    .footer-content-wrapper {
+        padding: 0 2rem;
+    }
+}
+
+
+.language-link {
+    color: #656770;
+    text-decoration: none;
+    padding: 0.25rem 0.5rem;
+    transition: color 0.2s ease;
+    white-space: nowrap;
+}
+
+.language-link:hover {
+    text-decoration: underline;
+    color: #1877f2;
+}
+
+.language-link.plus-button {
+    color: #a0a0a0;
+    border: 1px solid #d1d5db;
+    border-radius: 0.25rem;
+    padding: 0.125rem 0.25rem;
+}
+
+.footer-links-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    font-size: 0.875rem;
+}
+
+.footer-link {
+    color: #656770;
+    text-decoration: none;
+    padding: 0.25rem 0;
+    display: block;
+    transition: color 0.2s ease;
+}
+
+.footer-link:hover {
+    text-decoration: underline;
+    color: #1877f2;
+}
+
+.copyright-info {
+    font-size: 0.75rem;
+    color: #656770;
+    margin-top: 1rem;
+}
